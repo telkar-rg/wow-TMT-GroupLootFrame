@@ -1,0 +1,114 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/
+..\FrameXML\UI.xsd">
+
+
+	<Frame name="TMT_GLF_GroupLootFrame1" parent="GroupLootFrame1" toplevel="true" id="1">
+		<Size x="10" y="10" />
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="GroupLootFrame1IconFrameIcon">
+				<Offset>
+					<AbsDimension x="0" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="OVERLAY">
+				<Texture name="$parentTexture" file="Interface\TAXIFRAME\UI-Taxi-Icon-White">
+					<Size>
+						<AbsDimension x="16" y="16"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-8" y="4"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:Hide()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+	<Frame name="TMT_GLF_GroupLootFrame2" parent="GroupLootFrame2" id="2">
+		<Size x="10" y="10" />
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="GroupLootFrame1IconFrameIcon">
+				<Offset>
+					<AbsDimension x="0" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="OVERLAY">
+				<Texture name="$parentTexture" file="Interface\TAXIFRAME\UI-Taxi-Icon-White">
+					<Size>
+						<AbsDimension x="16" y="16"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-8" y="4"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:Hide()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+	<Frame name="TMT_GLF_GroupLootFrame3" parent="GroupLootFrame3" id="3">
+		<Size x="10" y="10" />
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="GroupLootFrame1IconFrameIcon">
+				<Offset>
+					<AbsDimension x="0" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="OVERLAY">
+				<Texture name="$parentTexture" file="Interface\TAXIFRAME\UI-Taxi-Icon-White">
+					<Size>
+						<AbsDimension x="16" y="16"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-8" y="4"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:Hide()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+	<Frame name="TMT_GLF_GroupLootFrame4" parent="GroupLootFrame4" id="4">
+		<Size x="10" y="10" />
+		<Anchors>
+			<Anchor point="TOPLEFT" relativeTo="GroupLootFrame1IconFrameIcon">
+				<Offset>
+					<AbsDimension x="0" y="0"/>
+				</Offset>
+			</Anchor>
+		</Anchors>
+		<Layers>
+			<Layer level="OVERLAY">
+				<Texture name="$parentTexture" file="Interface\TAXIFRAME\UI-Taxi-Icon-White">
+					<Size>
+						<AbsDimension x="16" y="16"/>
+					</Size>
+					<Anchors>
+						<Anchor point="TOPLEFT" x="-8" y="4"/>
+					</Anchors>
+				</Texture>
+			</Layer>
+		</Layers>
+		<Scripts>
+			<OnLoad>
+				self:Hide()
+			</OnLoad>
+		</Scripts>
+	</Frame>
+
+</Ui>

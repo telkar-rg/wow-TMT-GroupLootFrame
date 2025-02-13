@@ -1,0 +1,9 @@
+## Title: Transmog-Tracker: Group Loot Frame (0.1)
+## Interface: 30300
+## Author: Telkar-RG
+## Notes: Displays the Transmog unlock status of items in the Group Loot Frame
+## Notes-deDE: Zeigt den Transmog-Freischaltstatus von Items im GroupLootFrame an
+## Dependencies: TransmogTracker
+
+TMT_GroupLootFrame.lua
+TMT_GroupLootFrame.xml
