@@ -71,54 +71,54 @@ local tmog_allowed = {
 		["INVTYPE_SHIELD"] 	= 1,
 		["INVTYPE_RANGED"] 	= 1,
 		["INVTYPE_THROWN"] 	= 1,
-	}
+	},
 	["DEATHKNIGHT"] = {
 		["INVTYPE_WEAPONOFFHAND"] 	= 1,
-	}
+	},
 	["PALADIN"] = {
 		["INVTYPE_SHIELD"] 	= 1,
-	}
+	},
 	["PRIEST"] = {
 		["INVTYPE_HOLDABLE"] 	= 1,
 		["INVTYPE_RANGEDRIGHT"] = 1, -- needs 2nd check
-	}
+	},
 	["SHAMAN"] = {
 		["INVTYPE_SHIELD"] 	= 1,
 		["INVTYPE_WEAPONOFFHAND"] 	= 1,
-	}
+	},
 	["DRUID"] = {
 		["INVTYPE_HOLDABLE"] 	= 1
-	}
+	},
 	["ROGUE"] = {
 		["INVTYPE_WEAPONOFFHAND"] 	= 1,
 		["INVTYPE_RANGED"] 	= 1,
 		["INVTYPE_THROWN"] 	= 1,
 		["INVTYPE_RANGEDRIGHT"] = 1, -- needs 2nd check
-	}
+	},
 	["MAGE"] = {
 		["INVTYPE_HOLDABLE"] 	= 1,
 		["INVTYPE_RANGEDRIGHT"] = 1,
-	}
+	},
 	["WARLOCK"] = {
 		["INVTYPE_HOLDABLE"] 	= 1,
 		["INVTYPE_RANGEDRIGHT"] = 1, -- needs 2nd check
-	}
+	},
 	["HUNTER"] = {
 		["INVTYPE_WEAPONOFFHAND"] 	= 1,
 		["INVTYPE_RANGED"] 	= 1,
 		["INVTYPE_THROWN"] 	= 1,
 		["INVTYPE_RANGEDRIGHT"] 	= 1, -- needs 2nd check
-	}
+	},
 	["GUNS_CROSSBOWS"] = {
 		["HUNTER"] 	= 1,
 		["ROGUE"] 	= 1,
 		["WARRIOR"] = 1,
-	}
+	},
 	["WANDS"] = {
 		["PRIEST"] 	= 1,
 		["MAGE"] 	= 1,
 		["WARLOCK"] = 1,
-	}
+	},
 }
 
 
@@ -269,7 +269,7 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 end
 function TMT_GLF_GroupLootFrame_OnHide(self)
 	-- redundant, but lets be on the save side
-	_G["TMT_GLF_GroupLootFrame"..idx]:Hide()
+	_G["TMT_GLF_GroupLootFrame"..self:GetID()]:Hide()
 end
 
 
