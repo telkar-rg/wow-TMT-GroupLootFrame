@@ -1,6 +1,5 @@
-*.temp
 _Releases/*
-Git wow-Transmog-Tracker.lnk
+*.lnk
 
 # Compiled Lua sources
 luac.out
