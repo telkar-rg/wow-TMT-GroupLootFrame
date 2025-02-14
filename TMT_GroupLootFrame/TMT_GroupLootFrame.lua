@@ -23,8 +23,11 @@ local TMT_GLF_GroupLootFrame_OpenNewFrame
 local TMT_GLF_GroupLootFrame_OnHide
 
 local ClientLocale
-local PlayerFaction, PlayerClass
+local PlayerFaction, PlayerClassEN
 local tmog_itemSubClasses = {}
+
+local ttClasses = gsub(ITEM_CLASSES_ALLOWED, "%%s", "")
+local ttClassesLen = strlen(ttClasses)
 
 local pattern_item = "(\124c%x+\124Hitem:(%d+):[-:%d]+\124h%[(.-)%]\124h\124r)"
 
@@ -133,7 +136,7 @@ function ADDON_TABLE.OnReady()
 	
 	ClientLocale = GetLocale()
 	PlayerFaction = UnitFactionGroup("player") 	-- get EN PlayerFaction
-	_, PlayerClass = UnitClass("player") 		-- get EN PlayerClass
+	PlayerClassLocal, PlayerClassEN = UnitClass("player") 		-- get EN PlayerClass
 	
 	tmog_itemSubClasses = { GetAuctionItemSubClasses(1) }
 	-- 1; Einhandäxte
@@ -216,20 +219,20 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 	
 	-- check if we even want to track this
 	if tmogState and tmogState == 3 then
-		if not (tmog_allowed.ALL[itemEquipLoc] or tmog_allowed[PlayerClass][itemEquipLoc]) then
-			print("this class", PlayerClass, "cannot tmog", itemEquipLoc)
+		if not (tmog_allowed.ALL[itemEquipLoc] or tmog_allowed[PlayerClassEN][itemEquipLoc]) then
+			print("this class", PlayerClassEN, "cannot tmog", itemEquipLoc)
 			return
 		end
 		
 		if itemEquipLoc == "INVTYPE_RANGEDRIGHT" then
 			if ( itemSubType == tmog_itemSubClasses[16] ) then -- if WAND
-				if not tmog_allowed.WANDS[PlayerClass] then
-					print("this class", PlayerClass, "cannot tmog", itemSubType)
+				if not tmog_allowed.WANDS[PlayerClassEN] then
+					print("this class", PlayerClassEN, "cannot tmog", itemSubType)
 					return
 				end
 			else -- if GUNS CROSSBOWS
-				if not tmog_allowed.GUNS_CROSSBOWS[PlayerClass] then
-					print("this class", PlayerClass, "cannot tmog", itemSubType)
+				if not tmog_allowed.GUNS_CROSSBOWS[PlayerClassEN] then
+					print("this class", PlayerClassEN, "cannot tmog", itemSubType)
 					return
 				end
 			end
@@ -238,6 +241,40 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 	end
 	
 	print("tmogState", tmogState)
+	
+	-- ################################
+	if tmogState and tmogState ~= 1 then
+		TMT_GLF_TooltipHidden:SetOwner(UIParent, "ANCHOR_NONE")
+		TMT_GLF_TooltipHidden:ClearLines()
+		TMT_GLF_TooltipHidden:SetHyperlink(itemLink) -- check tooltip of our item
+		
+		local outClasses
+		-- check all lines of our tooltip
+		for i=1,TMT_GLF_TooltipHidden:NumLines() do 
+			local txtL = getglobal("TMT_GLF_TooltipHidden".."TextLeft" ..i):GetText()
+			local txtR = getglobal("TMT_GLF_TooltipHidden".."TextRight"..i):GetText()
+			if not txtL or txtL=="" or txtL==" " then break end
+			
+			if strsub(txtL,1,ttClassesLen) == ttClasses then
+				
+				local tc = { strsplit(",", strsub(txtL,ttClassesLen+1)) }
+				print("this item is for classes:", unpack(tc))
+				outClasses = {}
+				
+				if #tc > 0 then
+					for _, cName in pairs(tc) do
+						cName = strtrim(cName)
+						outClasses[cName] = 1
+					end
+				end
+				if not outClasses[PlayerClassLocal] then return end
+				break
+			end
+		end
+		TMT_GLF_TooltipHidden:Hide()
+	end
+	-- ################################
+	
 	
 	local frame, idx
 	for i=1, NUM_GROUP_LOOT_FRAMES do
