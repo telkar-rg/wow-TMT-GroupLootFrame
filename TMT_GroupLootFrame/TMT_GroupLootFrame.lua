@@ -25,6 +25,7 @@ local TMT_GLF_GroupLootFrame_OnHide
 local ClientLocale
 local PlayerFaction, PlayerClassEN
 local tmog_itemSubClasses = {}
+local magic_1, magic_2, magic_3, magic_4, magic_5, magic_6, magic_7 = 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875
 
 local ttClasses = gsub(ITEM_CLASSES_ALLOWED, "%%s", "")
 local ttClassesLen = strlen(ttClasses)
@@ -293,11 +294,11 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 	frame:Hide()
 	local texture = _G["TMT_GLF_GroupLootFrame"..idx.."Texture"];
 	if tmogState == 1 then
-		texture:SetTexture("Interface\\TAXIFRAME\\UI-Taxi-Icon-Green")
+		texture:SetTexCoord(magic_7, 1.0, 0, 0.5)
 	elseif tmogState == 2 then
-		texture:SetTexture("Interface\\TAXIFRAME\\UI-Taxi-Icon-Yellow")
+		texture:SetTexCoord(magic_6, magic_7, 0, 0.5)
 	elseif tmogState == 3 then
-		texture:SetTexture("Interface\\TAXIFRAME\\UI-Taxi-Icon-Red")
+		texture:SetTexCoord(magic_5, magic_6, 0, 0.5)
 	else
 		return
 	end

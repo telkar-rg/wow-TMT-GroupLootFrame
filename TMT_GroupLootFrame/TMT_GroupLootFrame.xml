@@ -6,45 +6,15 @@
 	<Frame name="TMT_GLF_GroupLootFrameTemplate" hidden="true" virtual="true">
 		<Size x="10" y="10" />
 		<Layers>
-			<Layer level="BACKGROUND">
-				<Texture name="$parentTextureBG_3" file="Interface\BUTTONS\WHITE8X8">
-					<Size>
-						<AbsDimension x="20" y="20"/>
-					</Size>
-					<Anchors>
-						<Anchor point="CENTER" relativePoint="TOPLEFT" />
-					</Anchors>
-					<Color r="0.5" g="0.5" b="0.5" a="1" />
-				</Texture>
-			</Layer>
-			<Layer level="ARTWORK">
-				<Texture name="$parentTextureBG_1" file="Interface\BUTTONS\UI-SILVER-BUTTON-UP">
-					<Size>
-						<AbsDimension x="13" y="26"/>
-					</Size>
-					<Anchors>
-						<Anchor point="RIGHT" x="0" y="0" relativePoint="TOPLEFT"/>
-					</Anchors>
-					<TexCoords left="0" right="0.1015625" top="0" bottom="0.8125"/>
-				</Texture>
-				<Texture name="$parentTextureBG_2" file="Interface\BUTTONS\UI-SILVER-BUTTON-UP">
-					<Size>
-						<AbsDimension x="13" y="26"/>
-					</Size>
-					<Anchors>
-						<Anchor point="LEFT" x="0" y="0" relativePoint="TOPLEFT"/>
-					</Anchors>
-					<TexCoords left="0.5234375" right="0.625" top="0" bottom="0.8125"/>
-				</Texture>
-			</Layer>
 			<Layer level="OVERLAY">
-				<Texture name="$parentTexture" file="Interface\TAXIFRAME\UI-Taxi-Icon-White">
+				<Texture name="$parentTexture" file="Interface\Minimap\TRACKING\OBJECTICONS">
 					<Size>
-						<AbsDimension x="16" y="16"/>
+						<AbsDimension x="32" y="32"/>
 					</Size>
 					<Anchors>
 						<Anchor point="CENTER" relativePoint="TOPLEFT" />
 					</Anchors>
+					<TexCoords left="0.0" right="0.125" top="0" bottom="0.5"/>
 				</Texture>
 			</Layer>
 		</Layers>
@@ -85,86 +55,5 @@
 			</Anchor>
 		</Anchors>
 	</Frame>
-	<!-- <Frame name="TMT_GLF_GroupLootFrame2" parent="GroupLootFrame2" id="2">
-		<Size x="10" y="10" />
-		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="GroupLootFrame1IconFrameIcon">
-				<Offset>
-					<AbsDimension x="0" y="0"/>
-				</Offset>
-			</Anchor>
-		</Anchors>
-		<Layers>
-			<Layer level="OVERLAY">
-				<Texture name="$parentTexture" file="Interface\TAXIFRAME\UI-Taxi-Icon-White">
-					<Size>
-						<AbsDimension x="16" y="16"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT" x="-8" y="4"/>
-					</Anchors>
-				</Texture>
-			</Layer>
-		</Layers>
-		<Scripts>
-			<OnLoad>
-				self:Hide()
-			</OnLoad>
-		</Scripts>
-	</Frame>
-	<Frame name="TMT_GLF_GroupLootFrame3" parent="GroupLootFrame3" id="3">
-		<Size x="10" y="10" />
-		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="GroupLootFrame1IconFrameIcon">
-				<Offset>
-					<AbsDimension x="0" y="0"/>
-				</Offset>
-			</Anchor>
-		</Anchors>
-		<Layers>
-			<Layer level="OVERLAY">
-				<Texture name="$parentTexture" file="Interface\TAXIFRAME\UI-Taxi-Icon-White">
-					<Size>
-						<AbsDimension x="16" y="16"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT" x="-8" y="4"/>
-					</Anchors>
-				</Texture>
-			</Layer>
-		</Layers>
-		<Scripts>
-			<OnLoad>
-				self:Hide()
-			</OnLoad>
-		</Scripts>
-	</Frame>
-	<Frame name="TMT_GLF_GroupLootFrame4" parent="GroupLootFrame4" id="4">
-		<Size x="10" y="10" />
-		<Anchors>
-			<Anchor point="TOPLEFT" relativeTo="GroupLootFrame1IconFrameIcon">
-				<Offset>
-					<AbsDimension x="0" y="0"/>
-				</Offset>
-			</Anchor>
-		</Anchors>
-		<Layers>
-			<Layer level="OVERLAY">
-				<Texture name="$parentTexture" file="Interface\TAXIFRAME\UI-Taxi-Icon-White">
-					<Size>
-						<AbsDimension x="16" y="16"/>
-					</Size>
-					<Anchors>
-						<Anchor point="TOPLEFT" x="-8" y="4"/>
-					</Anchors>
-				</Texture>
-			</Layer>
-		</Layers>
-		<Scripts>
-			<OnLoad>
-				self:Hide()
-			</OnLoad>
-		</Scripts>
-	</Frame> -->
 
 </Ui>
