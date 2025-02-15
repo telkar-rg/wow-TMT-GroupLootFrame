@@ -7,11 +7,11 @@ ADDON_NAME_SHORT = "TMT_GLF"
 
 
 
-local function DPrint(...)
-	DEFAULT_CHAT_FRAME:AddMessage( "|cff66bbff"..ADDON_NAME_SHORT.."|r: " .. strjoin("|r; ", tostringall(...) ) )
-	ChatFrame3:AddMessage( "|cff66bbff"..ADDON_NAME_SHORT.."|r: " .. strjoin("|r; ", tostringall(...) ) )
-end
-local print=DPrint
+-- local function DPrint(...)
+	-- DEFAULT_CHAT_FRAME:AddMessage( "|cff66bbff"..ADDON_NAME_SHORT.."|r: " .. strjoin("|r; ", tostringall(...) ) )
+	-- ChatFrame3:AddMessage( "|cff66bbff"..ADDON_NAME_SHORT.."|r: " .. strjoin("|r; ", tostringall(...) ) )
+-- end
+-- local print=DPrint
 
 
 -- ################################################################
@@ -133,7 +133,7 @@ local tmog_allowed = {
 function ADDON_TABLE.OnReady()
 	-- called when "ADDON_LOADED" event fired
 	ADDON_TABLE.Frame:UnregisterEvent("ADDON_LOADED")
-	print("-- OnReady, ADDON_LOADED")
+	-- print("-- OnReady, ADDON_LOADED")
 	
 	ClientLocale = GetLocale()
 	PlayerFaction = UnitFactionGroup("player") 	-- get EN PlayerFaction
@@ -162,7 +162,7 @@ end
 
 function ADDON_TABLE.OnLoad()
 	-- called when addon file is fully executed
-	print("-- OnLoad")
+	-- print("-- OnLoad")
 	
 	hooksecurefunc("GroupLootFrame_OpenNewFrame", TMT_GLF_GroupLootFrame_OpenNewFrame);
 	-- hooksecurefunc("GroupLootFrame_OnShow", function() print('x') end )
@@ -193,21 +193,21 @@ end
 
 function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 	-- local texture, name, count, quality = GetLootRollItemInfo(this.rollID);
-	print("-- TMT_GLF_GroupLootFrame_OpenNewFrame", rollID)
-	-- print(GetLootRollItemLink(rollID))
+	-- print("-- TMT_GLF_GroupLootFrame_OpenNewFrame", rollID)
+	
 	local itemLink, itemId, itemName, itemType, itemSubType, itemEquipLoc, tmogState
 	itemLink = GetLootRollItemLink(rollID)
 	if not itemLink then return end
 	
 	itemLink, itemId, itemName = strmatch( itemLink, pattern_item )
-	print("itemLink, itemId, itemName", itemLink, itemId, itemName)
+	-- print("itemLink, itemId, itemName", itemLink, itemId, itemName)
 	if not itemId then return end
 	
 	itemId = tonumber(itemId)
 	if not itemId then return end
 	
 	_, _, _, _, _, itemType, itemSubType, _, itemEquipLoc = GetItemInfo(itemId)
-	print("itemType, itemSubType, itemEquipLoc", itemType, itemSubType, itemEquipLoc)
+	-- print("itemType, itemSubType, itemEquipLoc", itemType, itemSubType, itemEquipLoc)
 	if not itemEquipLoc or itemEquipLoc == "" then return end -- not equipable
 	
 	if TMT:checkItemId(itemId) then
@@ -221,19 +221,19 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 	-- check if we even want to track this
 	if tmogState and tmogState == 3 then
 		if not (tmog_allowed.ALL[itemEquipLoc] or tmog_allowed[PlayerClassEN][itemEquipLoc]) then
-			print("this class", PlayerClassEN, "cannot tmog", itemEquipLoc)
+			-- print("this class", PlayerClassEN, "cannot tmog", itemEquipLoc)
 			return
 		end
 		
 		if itemEquipLoc == "INVTYPE_RANGEDRIGHT" then
 			if ( itemSubType == tmog_itemSubClasses[16] ) then -- if WAND
 				if not tmog_allowed.WANDS[PlayerClassEN] then
-					print("this class", PlayerClassEN, "cannot tmog", itemSubType)
+					-- print("this class", PlayerClassEN, "cannot tmog", itemSubType)
 					return
 				end
 			else -- if GUNS CROSSBOWS
 				if not tmog_allowed.GUNS_CROSSBOWS[PlayerClassEN] then
-					print("this class", PlayerClassEN, "cannot tmog", itemSubType)
+					-- print("this class", PlayerClassEN, "cannot tmog", itemSubType)
 					return
 				end
 			end
@@ -241,7 +241,7 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 		
 	end
 	
-	print("tmogState", tmogState)
+	-- print("tmogState", tmogState)
 	
 	-- ################################
 	if tmogState and tmogState ~= 1 then
@@ -259,7 +259,7 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 			if strsub(txtL,1,ttClassesLen) == ttClasses then
 				
 				local tc = { strsplit(",", strsub(txtL,ttClassesLen+1)) }
-				print("this item is for classes:", unpack(tc))
+				-- print("this item is for classes:", unpack(tc))
 				outClasses = {}
 				
 				if #tc > 0 then
@@ -285,7 +285,7 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 			break;
 		end
 	end
-	print("idx", idx)
+	-- print("idx", idx)
 	if not idx then return end
 	-- if idx ~= 1 then return end
 	
