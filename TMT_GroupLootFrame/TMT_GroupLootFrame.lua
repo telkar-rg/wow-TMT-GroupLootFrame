@@ -195,7 +195,7 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 	-- local texture, name, count, quality = GetLootRollItemInfo(this.rollID);
 	-- print("-- TMT_GLF_GroupLootFrame_OpenNewFrame", rollID)
 	
-	local itemLink, itemId, itemName, itemType, itemSubType, itemEquipLoc, tmogState
+	local itemLink, itemId, itemName, itemLevel itemType, itemSubType, itemEquipLoc, tmogState
 	itemLink = GetLootRollItemLink(rollID)
 	if not itemLink then return end
 	
@@ -206,7 +206,7 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 	itemId = tonumber(itemId)
 	if not itemId then return end
 	
-	_, _, _, _, _, itemType, itemSubType, _, itemEquipLoc = GetItemInfo(itemId)
+	_, _, _, itemLevel, _, itemType, itemSubType, _, itemEquipLoc = GetItemInfo(itemId)
 	-- print("itemType, itemSubType, itemEquipLoc", itemType, itemSubType, itemEquipLoc)
 	if not itemEquipLoc or itemEquipLoc == "" then return end -- not equipable
 	
@@ -245,6 +245,8 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 	
 	-- ################################
 	if tmogState and tmogState ~= 1 then
+		if itemLevel > 240 then return end -- ignore pdk25 and above item levels
+		
 		TMT_GLF_TooltipHidden:SetOwner(UIParent, "ANCHOR_NONE")
 		TMT_GLF_TooltipHidden:ClearLines()
 		TMT_GLF_TooltipHidden:SetHyperlink(itemLink) -- check tooltip of our item
