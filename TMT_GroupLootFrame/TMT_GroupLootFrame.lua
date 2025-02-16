@@ -3,7 +3,7 @@
 local TMT = _G["TransmogTracker"]
 if not TMT then return end
 
-ADDON_NAME_SHORT = "TMT_GLF"
+local ADDON_NAME_SHORT = "TMT_GLF"
 
 
 
@@ -22,8 +22,7 @@ ADDON_NAME_SHORT = "TMT_GLF"
 local TMT_GLF_GroupLootFrame_OpenNewFrame
 local TMT_GLF_GroupLootFrame_OnHide
 
-local ClientLocale
-local PlayerFaction, PlayerClassEN
+local PlayerClassEN, PlayerClassLocal
 local tmog_itemSubClasses = {}
 local magic_1, magic_2, magic_3, magic_4, magic_5, magic_6, magic_7 = 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875
 
@@ -195,7 +194,7 @@ function TMT_GLF_GroupLootFrame_OpenNewFrame(rollID, rollTime)
 	-- local texture, name, count, quality = GetLootRollItemInfo(this.rollID);
 	-- print("-- TMT_GLF_GroupLootFrame_OpenNewFrame", rollID)
 	
-	local itemLink, itemId, itemName, itemLevel itemType, itemSubType, itemEquipLoc, tmogState
+	local itemLink, itemId, itemName, itemLevel, itemType, itemSubType, itemEquipLoc, tmogState
 	itemLink = GetLootRollItemLink(rollID)
 	if not itemLink then return end
 	

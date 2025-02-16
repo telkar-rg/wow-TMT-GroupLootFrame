@@ -1,4 +1,4 @@
-## Title: Transmog-Tracker: |cFF40FFFF|HTMT|hGroup Loot Frame|h|r (0.2b)
+## Title: Transmog-Tracker: |cFF40FFFF|HTMT|hGroup Loot Frame|h|r (0.2c)
 ## Interface: 30300
 ## Author: Telkar-RG
 ## Notes: Displays the Transmog unlock status of items in the Group Loot Frame
