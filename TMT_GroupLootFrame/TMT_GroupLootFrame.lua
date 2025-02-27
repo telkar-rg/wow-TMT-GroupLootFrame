@@ -22,7 +22,7 @@ local ADDON_NAME_SHORT = "TMT_GLF"
 local TMT_GLF_GroupLootFrame_OpenNewFrame
 local TMT_GLF_GroupLootFrame_OnHide
 
-local PlayerClassEN, PlayerClassLocal
+local PlayerClassLocal, PlayerClassEN
 local tmog_itemSubClasses = {}
 local magic_1, magic_2, magic_3, magic_4, magic_5, magic_6, magic_7 = 0.125, 0.25, 0.375, 0.5, 0.625, 0.75, 0.875
 
@@ -134,8 +134,6 @@ function ADDON_TABLE.OnReady()
 	ADDON_TABLE.Frame:UnregisterEvent("ADDON_LOADED")
 	-- print("-- OnReady, ADDON_LOADED")
 	
-	ClientLocale = GetLocale()
-	PlayerFaction = UnitFactionGroup("player") 	-- get EN PlayerFaction
 	PlayerClassLocal, PlayerClassEN = UnitClass("player") 		-- get EN PlayerClass
 	
 	tmog_itemSubClasses = { GetAuctionItemSubClasses(1) }
